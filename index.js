@@ -149,8 +149,12 @@ function getName(object) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(arr) {
+  for (let i=0; i<arr.length; i++) {
+    if (arr[i] == 'apple')
+
+    return i;
+  }
 }
 
 /**
@@ -168,9 +172,20 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
-}
+
+function isItAnApple(arr) {
+  const newArr = [];
+  for (let i=0; i<arr.length; i++) {
+    if (arr[i] == 'apple') {
+      newArr.push(true);
+    }
+    else {
+      newArr.push(false);
+    }
+     
+  }
+  return newArr;
+  }
 
 
 
@@ -227,8 +242,11 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
-}
+   const choose = inventory.find((item, index) => {
+     return index === index;
+   });
+   return `The car is a ${choose.car_make} ${choose.car_model}`
+   }
 
 /**
  * ### Challenge `getLastCarInfo`
@@ -241,9 +259,11 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  let last = inventory[inventory.length - 1];
+  return `This is a ${last.car_make} ${last.car_model}`;
 }
+
 
 /**
  * ### Challenge `getModelYears`
@@ -254,8 +274,12 @@ function getLastCarInfo(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+  let newArr = [];
+  for (let i = 0; i < inventory.length; i++) {
+    newArr.push(inventory[i].car_year);
+  }
+  return newArr;
 }
 
 /**
